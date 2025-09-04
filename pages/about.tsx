@@ -66,11 +66,11 @@ const About: NextPage = () => {
   );
 };
 
-const ValueCard = ({ icon, title, description }: { icon: React.ReactNode, title: string, description: string }) => (
+const ValueCard = ({ icon, title, description }: { icon: React.ReactElement, title: string, description: string }) => (
     <div className="p-6 bg-white/60 backdrop-blur-md rounded-2xl border border-slate-200/80 text-center">
         <div className="inline-block p-3 bg-white rounded-full mb-3 border">
-          {/* FIX: Add missing 'React' import to resolve reference error and type issue with React.cloneElement. */}
-          {React.cloneElement(icon as React.ReactElement, { className: "w-8 h-8 text-indigo-500" })}
+          {/* FIX: Change icon prop type from React.ReactNode to React.ReactElement to allow cloning with props. */}
+          {React.cloneElement(icon, { className: "w-8 h-8 text-indigo-500" })}
         </div>
         <h3 className="font-semibold text-xl mb-2 text-slate-800">{title}</h3>
         <p className="text-slate-600 text-sm">{description}</p>

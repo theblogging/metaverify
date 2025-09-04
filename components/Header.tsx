@@ -46,17 +46,12 @@ const Header = () => {
                 </div>
             </nav>
 
-            {/* Mobile Menu Overlay */}
-            <div className={`fixed inset-0 z-40 bg-slate-900/50 backdrop-blur-sm transition-opacity duration-300 md:hidden ${isOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'}`} onClick={toggleMenu} aria-hidden="true"></div>
-            <div className={`fixed top-0 right-0 h-full w-4/5 max-w-sm z-50 bg-white shadow-xl transition-transform duration-300 ease-in-out md:hidden ${isOpen ? 'translate-x-0' : 'translate-x-full'}`}>
-                <div className="flex justify-between items-center p-6 border-b border-slate-200">
-                    <span className="font-semibold text-slate-700">Menu</span>
-                    <button onClick={toggleMenu} aria-label="Close menu" className="p-2 -mr-2">
-                        <X className="h-6 w-6 text-slate-500" />
-                    </button>
-                </div>
-                <div className="flex flex-col p-6 space-y-6">
-                    <NavLinks className="text-lg font-medium text-slate-700 hover:text-indigo-600" onClick={closeMenu} />
+            {/* Mobile Dropdown Menu */}
+            <div 
+                className={`md:hidden transition-all duration-300 ease-in-out border-t border-slate-200/80 ${isOpen ? 'max-h-96' : 'max-h-0'} overflow-hidden`}
+            >
+                <div className="flex flex-col px-6 pt-4 pb-6 space-y-4">
+                    <NavLinks className="font-medium text-slate-700 hover:text-indigo-600" onClick={closeMenu} />
                 </div>
             </div>
         </header>

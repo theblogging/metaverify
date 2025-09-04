@@ -72,11 +72,11 @@ const HowItWorks: NextPage = () => {
   );
 };
 
-const TimelineStep = ({ icon, step, title, description }: { icon: React.ReactNode; step: string; title: string; description: string }) => (
+const TimelineStep = ({ icon, step, title, description }: { icon: React.ReactElement; step: string; title: string; description: string }) => (
   <div className="mb-12 ml-12 p-6 bg-white/60 backdrop-blur-md rounded-2xl border border-slate-200/80">
     <div className="absolute -left-6 flex items-center justify-center w-12 h-12 bg-white rounded-full border-4 border-indigo-200">
-      {/* FIX: Add missing 'React' import to resolve reference error and type issue with React.cloneElement. */}
-      {React.cloneElement(icon as React.ReactElement, { className: 'w-6 h-6 text-indigo-600' })}
+      {/* FIX: Change icon prop type from React.ReactNode to React.ReactElement to allow cloning with props. */}
+      {React.cloneElement(icon, { className: 'w-6 h-6 text-indigo-600' })}
     </div>
     <span className="text-sm font-semibold text-indigo-600 uppercase">{step}</span>
     <h3 className="text-xl font-bold text-slate-800 mt-1 mb-2">{title}</h3>
