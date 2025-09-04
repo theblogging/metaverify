@@ -1,0 +1,5 @@
+{
+  "name": "Meta Verified Service",
+  "description": "A Next.js website for Meta Verified Service, built with TypeScript, Tailwind CSS, and Static Site Generation.",
+  "requestFramePermissions": []
+}
